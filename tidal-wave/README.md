@@ -48,6 +48,10 @@ Pseudocode
         perubahanKetinggianTiapJam = ketinggianMaksMin * sin ( 2 * pi * iterasi/periodeHari ) * 
         sin ( 2 * pi * iterasi/periodeBulan )    
 
+Contoh output
+
+![Grafik hasil plot](src/resultgraph.jpg)
+
 ### Referensi
 
 [1] [The cause of the tides, and calculating tidal

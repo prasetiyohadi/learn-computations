@@ -52,8 +52,11 @@ Pseudocode
 
 [1] [The cause of the tides, and calculating tidal
    forces.](https://squishtheory.wordpress.com/the-tides/)
+
 [2] Suryadi Siregar, Gaya Pasang Surut dan Implikasinya, Prodi Astronomi, 
 FMIPA, Institut Teknologi Bandung
+
 [3] [Lunar and Solar Tides](http://scienceprimer.com/lunar-and-solar-tides)
    bulge.](https://squishtheory.wordpress.com/the-earths-equatorial-bulge/)
+
 [4] [Water Levels and Flow](https://www.iho.int/iho_pubs/CB/C-13/english/C-13_Chapter_5.pdf)

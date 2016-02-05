@@ -1,0 +1,10 @@
+# python bytecode
+*.py[cod]
+
+# rope
+.ropeproject/
+
+# result
+*.png
+*.csv
+

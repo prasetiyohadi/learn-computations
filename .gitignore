@@ -1,3 +1,8 @@
+# c/c++ binary
+a.out
+*.exe
+*.o
+
 # python bytecode
 *.py[cod]
 
@@ -5,6 +10,6 @@
 .ropeproject/
 
 # result
+*.txt
 *.png
 *.csv
-

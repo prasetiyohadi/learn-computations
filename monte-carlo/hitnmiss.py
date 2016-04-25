@@ -46,7 +46,7 @@ for x in range(0, p):
 
 # save the result to CSV file
 # sort result dictionary
-oresult = od(sorted(result.items()))
+oresult = od(sorted(result.items()))0r
 
 # write to CSV file
 with open('result.csv', 'w') as resfile:

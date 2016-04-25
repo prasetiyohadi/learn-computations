@@ -59,6 +59,10 @@ for x in range(0, p):
     N = nInit*10**x
     count = 0
     init = time.perf_counter()
+    xrh = []
+    yrh = []
+    zrh = []
+    vrh = []
     for i in range(0, N):
         xr = random.uniform(0, 1)
         yr = random.uniform(0, 1)
@@ -66,6 +70,10 @@ for x in range(0, p):
         vr = random.uniform(0, 1)
         if (c*vr < mymcfunc(xr, yr, zr)):
             count = count + 1
+        xrh = xr
+        yrh = yr
+        zrh = zr
+        vrh = vr
     deltat = time.perf_counter() - init
     mcint = count/N*c*(xb-xa)*(yb-ya)*(zb-za)
     result[N] = [mcint, abs(reint-mcint), deltat]

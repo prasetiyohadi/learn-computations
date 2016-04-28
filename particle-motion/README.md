@@ -37,3 +37,7 @@ Definisi gerakan
 * hitung kecepatan baru berdasarkan resultan kecepatan dan sudut arah yang baru
 * cerminkan posisi partikel ke sisi yang benar dengan mengubah tanda posisi y
 * ulangi iterasi
+
+#### Referensi
+
+* Refleksi terhadap dinding segitiga: [http://www.cimt.plymouth.ac.uk/projects/mepres/alevel/fpure_ch9.pdf](http://www.cimt.plymouth.ac.uk/projects/mepres/alevel/fpure_ch9.pdf)

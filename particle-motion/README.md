@@ -1,6 +1,11 @@
 ## Particle Motion Simulation
 
 1. motion.cpp : Particle motion inside triangle in 2D
+2. motion1.cpp : Particle motion inside triangle in 2D with collision between
+  particles and the output is displayed as OpenGL window
+3. motion2.cpp : Particle motion inside triangle in 2D with collision between
+  particles and the output is displayed as OpenGL window as well as streamed to
+  stdout for recording using ffmpeg
 
 
 ### Particle motion inside triangle in 2D
@@ -38,6 +43,24 @@ Definisi gerakan
 * cerminkan posisi partikel ke sisi yang benar dengan mengubah tanda posisi y
 * ulangi iterasi
 
-#### Referensi
+### Kompilasi program
+
+Untuk melakukan kompilasi program motion1.cpp dan motion2.cpp, gunakan langkah
+berikut ini
+
+    g++ motion1.cpp -lGL -lglut -o motion1
+    g++ motion2.cpp -lGL -lglut -o motion2
+
+Khusus untuk program motion2.cpp gunakan langkah berikut untuk melakukan
+penyimpanan ke video MP4
+
+    ./motion2 | ffmpeg -r 240 -f rawvideo -pix_fmt rgb24 -s 660x440 -i pipe:0 -vcodec libx264 -threads 4 -pix_fmt yuv420p -vf vflip output.mp4
+
+Jika video output terlalu lambat, percepat dengan ffmpeg
+
+    ffmpeg -i output.mp4 -filter:v "setpts=0.25*PTS" output-fast.mp4
+
+
+### Referensi
 
 * Refleksi terhadap dinding segitiga: [http://www.cimt.plymouth.ac.uk/projects/mepres/alevel/fpure_ch9.pdf](http://www.cimt.plymouth.ac.uk/projects/mepres/alevel/fpure_ch9.pdf)

@@ -13,3 +13,7 @@ a.out
 *.txt
 *.png
 *.csv
+*.mp4
+
+# valgrind
+vgcore.*

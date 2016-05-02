@@ -60,6 +60,11 @@ Jika video output terlalu lambat, percepat dengan ffmpeg
 
     ffmpeg -i output.mp4 -filter:v "setpts=0.25*PTS" output-fast.mp4
 
+### Video output program
+
+Berikut ini adalah output dari program motion2.cpp
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=8aVqEdP0xcU" target="_blank"><img src="http://img.youtube.com/vi/8aVqEdP0xcU/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 ### Referensi
 

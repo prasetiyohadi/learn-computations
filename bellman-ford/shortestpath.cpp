@@ -50,6 +50,15 @@ int main() {
         {INF, INF, INF, INF, 0}};
     */
 
+    /*
+    matrix = {{0,2,INF,INF,INF},
+        {INF,0,-2,INF,2},
+        {INF,INF,0,2,INF},
+        {INF,-2,INF,0,INF},
+        {INF,INF,INF,INF,0}};
+    */
+
+    /*
     matrix = {{0, 10, 9, 5, INF, INF, INF, INF, INF, INF, INF, INF, INF}, 
         {INF, 0, INF, INF, INF, 3, 4, 12, INF, INF, INF, INF, INF}, 
         {INF, INF, 0, 4, 8, INF, INF, INF, INF, INF, INF, INF, INF}, 
@@ -63,6 +72,21 @@ int main() {
         {INF, INF, INF, INF, INF, INF, INF, INF, INF, INF, 0, INF, 5}, 
         {INF, INF, INF, INF, INF, INF, INF, INF, INF, INF, INF, 0, 4}, 
         {INF, INF, INF, INF, INF, INF, INF, INF, INF, INF, INF, INF, 0}};
+    */
+
+    matrix = {{0,2,3,INF,INF,INF,INF,INF,INF,INF,INF,INF,INF},
+	    {INF,0,INF,10,3,INF,INF,INF,INF,INF,INF,INF,INF},
+	    {INF,INF,0,5,5,INF,INF,INF,INF,INF,INF,INF,INF},
+	    {INF,INF,INF,0,-8,1,5,-2,INF,INF,INF,INF,INF},
+	    {INF,INF,INF,INF,0,INF,INF,1,INF,INF,INF,INF,INF},
+	    {INF,INF,INF,INF,INF,0,INF,INF,2,INF,INF,INF,INF},
+	    {INF,INF,INF,INF,INF,INF,0,INF,-5,INF,INF,INF,INF},
+	    {INF,INF,INF,INF,INF,INF,3,0,INF,5,INF,INF,INF},
+	    {INF,INF,INF,INF,INF,INF,INF,INF,0,2,INF,3,6},
+	    {INF,INF,INF,INF,INF,INF,INF,INF,INF,0,6,7,INF},
+	    {INF,INF,INF,INF,INF,INF,INF,INF,INF,INF,0,INF,1},
+	    {INF,INF,INF,INF,INF,INF,INF,INF,INF,INF,INF,0,5},
+	    {INF,INF,INF,INF,INF,INF,INF,INF,INF,INF,INF,INF,0}};
 
     dist = matrix.at(src);
     dist.at(src) = 0;

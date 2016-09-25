@@ -3,6 +3,15 @@ a.out
 *.exe
 *.o
 
+# data file
+.dat
+
+# log
+.log
+
+# output
+.eps
+
 # python bytecode
 *.py[cod]
 

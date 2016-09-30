@@ -3,6 +3,12 @@ a.out
 *.exe
 *.o
 
+# data file
+*.dat
+
+# log
+*.log
+
 # python bytecode
 *.py[cod]
 
@@ -14,6 +20,8 @@ a.out
 *.png
 *.csv
 *.mp4
+*.eps
+*.jpeg
 
 # valgrind
 vgcore.*

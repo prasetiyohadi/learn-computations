@@ -13,8 +13,9 @@
 #include <cmath>
 #include <iostream>
 
-double func (double t, double y);
-double rungeKutta (double h, double t, double y);
+double f1 (double t, double y);
+double rungeKutta (double (*func)(double, double), double h, double t, 
+        double y);
 
 int main () {
     bool loop;
@@ -28,7 +29,7 @@ int main () {
     std::cout << "t\t\ty" << std::endl;
     while (t < T && loop) {
         std::cout << t << "\t\t" << yt << std::endl;
-        y = rungeKutta(h, t, yt);
+        y = rungeKutta(&f1, h, t, yt);
         t += h;
         if (std::fabs(y - yt) < err) loop = false;
         yt = y;
@@ -36,17 +37,18 @@ int main () {
     return 0;
 }
 
-double func (double t, double y) {
+double f1 (double t, double y) {
     /* define ordinary differential function here */
     return -2*y + t + 4;
 }
 
-double rungeKutta (double h, double t, double y) {
+double rungeKutta (double (*func)(double, double), double h, double t, 
+        double y) {
     double k1, k2, k3, k4;
-    k1 = func(t, y);
-    k2 = func(t+h/2, y+k1*h/2);
-    k3 = func(t+h/2, y+k2*h/2);
-    k4 = func(t+h, y+k3*h);
+    k1 = (*func)(t, y);
+    k2 = (*func)(t+h/2, y+k1*h/2);
+    k3 = (*func)(t+h/2, y+k2*h/2);
+    k4 = (*func)(t+h, y+k3*h);
     return y + (k1 + 2*k2 + 2*k3 + k4)*h/6;
 }
     

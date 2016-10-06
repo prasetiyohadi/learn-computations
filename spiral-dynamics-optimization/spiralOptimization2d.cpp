@@ -1,21 +1,6 @@
-/* 2-Dimensial Spiral Optimization
- * step 0: preparation
- * number of search points: m >= 2
- * parameters of S2(r, tetha): 0 <= tetha < 2pi, 0 < r < 1
- * maximum iteration numbers: k_max
- * step 1: initialization
- * initial points: x_i(0) elements of R2, i = 1, 2, ..., m
- * center x* = x_{ig}(0), ig = arg min f(x_i(0)), i = 1, 2, ..., m
- * step 2: updating x_i
- * x_i(k+1) = S2(r, tetha)x_i(k) - S2(r, tetha - I2)x*, i = 1, 2, ..., m
- * step 3: updating x*
- * x* = x_{ig}(k+1), ig = arg min f(x_i(k+1)), i = 1, 2, ..., m
- * step 4: checking terminating criterion
- * if k = k_max, then terminate
- * otherwise, set k = k + 1, return to step 2
- */
-
+#include <fstream>
 #include <iostream>
+#include <cmath>
 #include <vector>
 using namespace std;
 #include "sobol.hpp"
@@ -27,34 +12,48 @@ vector<vector<double>> spiralOptimize(
         vector<vector<double>>& xt,
         vector<vector<double>>& s);
 vector<double> argMin(vector<vector<double>>& x);
+vector<double> argMax(vector<vector<double>>& x);
 double func(vector<double>& x);
 int main () {
+    ofstream output;
     vector<vector<double>> x, xt;
     vector<vector<double>> s2;
     vector<double> xig;
     int K, m, x1Max, x1Min, x2Max, x2Min;
-    x2Min = -5;
-    x2Max = 5;
-    x1Min = -5;
-    x1Max = 5;
-    m = 5;
+    x2Min = -3;
+    x2Max = 3;
+    x1Min = -3;
+    x1Max = 3;
+    m = 200;
     K = 50;
     s2 = {{0.67, -0.67},
         {0.67, 0.67}};
     xt = initializePoints(m, x1Min, x1Max, x2Min, x2Max);
     //xig = argMin(xt);
-    xig = {0, 0};
+    xig = argMax(xt);
+    //cout << "F(x) = " << func(xig) << endl;
+    //xig = {0, 0};
+    output.open ("spiralOptimization2d.dat");
     for (int i=0; i<K; i++) {
         for (int j=0; j<m; j++) {
             for (int k=0; k<2; k++)
-                cout << xt[j][k] << "\t";
+                //cout << xt[j][k] << "\t";
+                output << xt[j][k] << "\t";
             //cout << endl;
+            output << endl;
         }
-        cout << endl;
+        //cout << endl;
+        //output << endl;
         x = spiralOptimize(m, xig, xt, s2);
         //xig = argMin(x);
+        xig = argMax(x);
+        //cout << "F(x) = " << func(xig) << endl;
         xt = x;
     }
+    cout << "the root of equations is: ";
+    for (int i=0; i<2; i++) cout << xig[i] << " ";
+    cout << endl;
+    output.close();
     return 0;
 }
 vector<vector<double>> initializePoints(int m, int x1, int X1, int x2,
@@ -102,13 +101,30 @@ vector<double> argMin(vector<vector<double>>& x) {
     int xi;
     tmp = func(x.at(0));
     xi = 0;
-    for (int i=1; i<x.size(); i++)
+    for (int i=1; i<x.size(); i++) {
         if (func(x.at(i)) < tmp) {
             tmp = func(x.at(i));
             xi = i;
         }
+    }
+    return x.at(xi);
+}
+vector<double> argMax(vector<vector<double>>& x) {
+    double tmp;
+    int xi;
+    tmp = func(x.at(0));
+    xi = 0;
+    for (int i=1; i<x.size(); i++) {
+        if (func(x.at(i)) > tmp) {
+            tmp = func(x.at(i));
+            xi = i;
+        }
+    }
     return x.at(xi);
 }
 double func(vector<double>& x) {
-    return 0.0;
+    double f1, f2;
+    f1 = pow(x[0], 2) + pow(x[1], 2) - 4;
+    f2 = x[0]*x[1] - 1;
+    return 1/(1+fabs(f1)+fabs(f2));
 }

@@ -14,8 +14,8 @@ set title '2-dimensional spiral dynamics'
 #set key right bmargin Left box 3
 set key right bottom Left box 3
 
-plot 'spiralOptimization2d.dat' using 1:2 title 'x1'  with linespoints lt 1 pt 1, \
-  'spiralOptimization2d.dat' using 3:4 title 'x2'  with linespoints lt 2 pt 1, \
-  'spiralOptimization2d.dat' using 5:6 title 'x3'  with linespoints lt 3 pt 1, \
-  'spiralOptimization2d.dat' using 7:8 title 'x4'  with linespoints lt 4 pt 1, \
-  'spiralOptimization2d.dat' using 9:10 title 'x5'  with linespoints lt 5 pt 1
+plot 'spiralOptimization2d.dat' using 1:2 title 'x1'  with points lt 1 pt 1,
+#  'spiralOptimization2d.dat' using 3:4 title 'x2'  with linespoints lt 2 pt 1, \
+#  'spiralOptimization2d.dat' using 5:6 title 'x3'  with linespoints lt 3 pt 1, \
+#  'spiralOptimization2d.dat' using 7:8 title 'x4'  with linespoints lt 4 pt 1, \
+#  'spiralOptimization2d.dat' using 9:10 title 'x5'  with linespoints lt 5 pt 1

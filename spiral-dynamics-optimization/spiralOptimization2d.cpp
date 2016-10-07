@@ -25,29 +25,26 @@ int main () {
     x1Min = -3;
     x1Max = 3;
     m = 200;
-    K = 50;
+    K = 100;
     s2 = {{0.67, -0.67},
         {0.67, 0.67}};
     xt = initializePoints(m, x1Min, x1Max, x2Min, x2Max);
     //xig = argMin(xt);
     xig = argMax(xt);
-    //cout << "F(x) = " << func(xig) << endl;
+    cout << func(xig) << endl;
     //xig = {0, 0};
     output.open ("spiralOptimization2d.dat");
     for (int i=0; i<K; i++) {
         for (int j=0; j<m; j++) {
             for (int k=0; k<2; k++)
-                //cout << xt[j][k] << "\t";
                 output << xt[j][k] << "\t";
-            //cout << endl;
             output << endl;
         }
-        //cout << endl;
         //output << endl;
         x = spiralOptimize(m, xig, xt, s2);
         //xig = argMin(x);
         xig = argMax(x);
-        //cout << "F(x) = " << func(xig) << endl;
+        cout << func(xig) << endl;
         xt = x;
     }
     cout << "the root of equations is: ";
@@ -126,5 +123,10 @@ double func(vector<double>& x) {
     double f1, f2;
     f1 = pow(x[0], 2) + pow(x[1], 2) - 4;
     f2 = x[0]*x[1] - 1;
+    //f1 = exp(x[0]-x[1]) - sin(x[0]+x[1]);
+    //f2 = pow(x[0],2)*pow(x[1],2) - cos(x[0]+x[1]);
+    //f1 = 0.5*sin(x[0]*x[1]) - 0.25*x[1]/M_PI - 0.5*x[0];
+    //f2 = (1-0.25/M_PI)*(exp(2*x[0]) - exp(1)) + exp(1)*x[1]/M_PI - 
+    //    2*exp(1)*x[0];
     return 1/(1+fabs(f1)+fabs(f2));
 }

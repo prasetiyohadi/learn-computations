@@ -36,9 +36,3 @@ Output
     Koefisien clustering
     --------------------
     Koefisien clustering: 0.067
-
-**File output:**
-
-- ./output/distribusi\_degree\_jaringan.png
-
-![Grafik distribusi degree](output/distribusi_degree_jaringan.png)
